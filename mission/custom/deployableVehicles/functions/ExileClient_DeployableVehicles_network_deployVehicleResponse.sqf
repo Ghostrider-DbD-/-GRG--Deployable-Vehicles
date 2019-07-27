@@ -6,10 +6,6 @@
 
 private["_response"];
 _response = _this select 0;
-//_msg = format["--<><> ExileClient_DeployableVehicles_network_deployVehicleResponse: _response= %1", _response];
-//systemChat _msg;
-//diag_log _msg;
-
 _deployablePlayer = player;
 switch(_response) do
 {
@@ -22,13 +18,7 @@ switch(_response) do
 		_vehName = gettext (configfile >> "CfgVehicles" >> _vehType >> "displayName");
 		["SuccessTitleAndText", ["Success", format["Your deployable %1 has been is readied for you.",_vehName]]] call ExileClient_gui_toaster_addTemplateToast;		
 		_materialsRequired = getArray (missionConfigFile >> "deployableVehicles" >> "configs" >> "materialsRequired");
-
-		//diag_log format["--<><> ExileClient_DeployableVehicles_network_deployVehicleResponse: _vehNetID= %1", _vehNetID];
-		//diag_log format["--<><> ExileClient_DeployableVehicles_network_deployVehicleResponse: _veh= %1", _veh];
-		//diag_log format["--<><> ExileClient_DeployableVehicles_network_deployVehicleResponse: _vehName= %1", _vehName];
-		//diag_log format["--<><> ExileClient_DeployableVehicles_network_deployVehicleResponse: _materialsRequired= %1", _response];
-		//diag_log format["--<><> ExileClient_DeployableVehicles_network_deployVehicleResponse: _response= %1", _materialsRequired];
-		//diag_log format["--<><> ExileClient_DeployableVehicles_network_deployVehicleResponse: _response= %1", _response];		
+	
 		{
 				_isWeapon = false;
 				_isMagazine = false;
@@ -37,26 +27,18 @@ switch(_response) do
 				{
 					_deployablePlayer removeWeapon _x;
 					_isWeapon = true;
-					//_msg = format["--<><> ExileClient_DeployableVehicles_network_deployVehicleResponse: weapon %1 removed", _x];
-					//diag_log _msg;
-					//systemChat _msg;
 				};
 				if (isClass (configFile >> "CfgMagazines" >> _x)) then
 				{
 					_deployablePlayer removeMagazine _x;
 					_isMagazine = true;
-					//_msg = format["--<><> ExileClient_DeployableVehicles_network_deployVehicleResponse: magazine %1 removed", _x];
-					//diag_log _msg;
-					//systemChat _msg;
 				};
 				if ((!_isWeapon) && !(_isMagazine)) then
 				{
 					_deployablePlayer unassignItem _x;
 					_deployablePlayer removeItem _x;
 					_isItem = true;
-					//_msg = format["--<><> ExileClient_DeployableVehicles_network_deployVehicleResponse: item %1 removed", _x];
-					//diag_log _msg;
-					//systemChat _msg;					
+			
 				};
 		}forEach _materialsRequired;
 	};

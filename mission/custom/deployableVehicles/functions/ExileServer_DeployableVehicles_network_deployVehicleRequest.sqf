@@ -15,7 +15,6 @@ _canDeploy = count (_playerVehicles) < _maxDeployables;
 if !(_canDeploy) exitWith 
 {
 	_msg = ["Duplicate",""];
-	//diag_log format["---->>>>  ExileServer_DeployVehicle_network_deployVehicleRequest : Exception: _msg = %1",_msg];
 	[_sessionID, "deployVehicleResponse", _msg] call ExileServer_system_network_send_to;
 };
 _allowedDeployables = getArray (missionConfigFile >> "deployableVehicles" >> "configs" >> "deployables");
@@ -27,7 +26,6 @@ _deployedVehicle = _vehType createVehicle _spawnPos;
 if (_deployedVehicle isEqualTo objNull) exitWith
 {
 	_msg = ["Error",""];
-	//diag_log format["---->>>>  ExileServer_DeployVehicle_network_deployVehicleRequest : Exception: _msg = %1",_msg];
 	[_sessionID, "deployVehicleResponse", _msg] call ExileServer_system_network_send_to;	
 };
 _deployedVehicleNetID = netID _deployedVehicle;
@@ -37,14 +35,6 @@ _deployedVehicle setVariable["playerOwner",_playerNedID];
 _deployedVehicle setVariable["playerUID",getPlayerUID _player];
 deployableVehiclesList pushBack _deployedVehicleNetID;
 
-//diag_log format["-->> ExileServer_DeployVehicle_network_deployVehicleRequest: _allowedDeployables = %1",_allowedDeployables];
-//diag_log format["-->> ExileServer_DeployVehicle_network_deployVehicleRequest: _vehType = %1",_vehType];
-//diag_log format["-->> ExileServer_DeployVehicle_network_deployVehicleRequest: _deployedVehicle = %1",_deployedVehicle];
-//diag_log format["-->> ExileServer_DeployVehicle_network_deployVehicleRequest: _deployedVehicleNetID = %1",_deployedVehicleNetID];
-//diag_log format["-->> ExileServer_DeployVehicle_network_deployVehicleRequest: deployableVehiclesList = %1",deployableVehiclesList];
-//diag_log format["-->> ExileServer_DeployVehicle_network_deployVehicleRequest: _allowedDeployables = %1",_allowedDeployables];
-//diag_log format["-->> ExileServer_DeployVehicle_network_deployVehicleRequest: _allowedDeployables = %1",_allowedDeployables];
-//diag_log format["-->> ExileServer_DeployVehicle_network_deployVehicleRequest: _allowedDeployables = %1",_allowedDeployables];
 _msg = ["Success", _deployedVehicleNetID];
 [_sessionID, "deployVehicleResponse", _msg] call ExileServer_system_network_send_to;
 deployableVehiclesOperationInProgress_server = 0;

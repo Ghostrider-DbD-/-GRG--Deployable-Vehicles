@@ -12,10 +12,6 @@
 
 */
 deployableVehiclePacked = 1;
-//_msg = "-->> function ExileClient_DeployableVehicles_network_packVehicleResquest called";
-//diag_log _msg;
-//_msg = format["-->> function ExileClient_DeployableVehicles_network_packVehicleResquest:  _this = %1",_this];
-//diag_log _msg;
 
 params["_target","_caller"];
 _vehicleNetID = netID _target;

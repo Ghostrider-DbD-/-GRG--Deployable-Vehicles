@@ -3,7 +3,7 @@
 	By Ghostrider[GRG]
 	Copyright 2017
 */
-diag_log "<>--<>  Function:: ExileServer_DeployableVehicles_network_deleteVehicleRequest called.";
+//diag_log "<>--<>  Function:: ExileServer_DeployableVehicles_network_deleteVehicleRequest called.";
 waitUntil {deployableVehiclesOperationInProgress_server == 0};
 deployableVehiclesOperationInProgress_server = 1;
 private["_vehicle","_vehicleNetID"];

@@ -8,6 +8,7 @@
     unit: Object - Unit that left the vehicle
     turret: Array - turret path (since Arma 3 v1.36)
 */
+if !(alive player) exitWith{};
 if (deployableVehiclePacked == 1) exitWith {deployableVehiclePacked = 0};
 params["_vehicle","_position","_unit"];
 diag_log format["ExileClient_DeployableVehicles_EH_getOut :  _this = %1",_this];

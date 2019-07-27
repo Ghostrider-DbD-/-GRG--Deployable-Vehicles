@@ -9,7 +9,6 @@
 
 if (isServer) then
 {
-	diag_log "Compiling deployableVehicles system Server Routines --->>>";	
 	deployableVehiclesList = [];
 	deployableVehiclesOperationInProgress_server = 0;
 
@@ -23,7 +22,6 @@ if (isServer) then
 		_code = compileFinal (preprocessFileLineNumbers _file);
 
 		missionNamespace setVariable [_function, _code];
-		diag_log format["deployableVehicle Server: attempted to compile file %1",_file];
 	}
 	forEach
 	[
@@ -49,7 +47,7 @@ if (hasInterface) then
 		_code = compileFinal (preprocessFileLineNumbers _file);
 
 		missionNamespace setVariable [_function, _code];
-		diag_log format["deployableVehicle Client: attempted to compile file %1",_file];
+		//diag_log format["deployableVehicle Client: attempted to compile file %1",_file];
 	}
 	forEach
 	[

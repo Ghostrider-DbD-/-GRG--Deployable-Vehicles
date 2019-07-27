@@ -7,8 +7,9 @@ class deployableVehicles
 		materialsRequired[] = {"ItemRadio"};
 		deployablesAllowed = 1;
 		returnItemsWhenPacked = 1;
-		deployables[] = {"Exile_Bike_OldBike","Exile_Bike_MountainBike"};
-		maxTimeAbandonedOnRoads = 60;
-		maxTimeAbandoned = 300;
+		//deployables[] = {"Exile_Bike_OldBike","Exile_Bike_MountainBike"};
+		deployables[] = {"Exile_Bike_QuadBike_Red","Exile_Bike_QuadBike_White","Exile_Bike_QuadBike_Blue"};
+		maxTimeAbandonedOnRoads = 180;
+		maxTimeAbandoned = 600;
 	};
 };
