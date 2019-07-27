@@ -7,9 +7,10 @@ All the code and information provided here is provided under an Attribution Non-
 http://creativecommons.org/licenses/by-nc-sa/4.0/
 
 Description: A new deployable vehicles script for Exile V 1.0
+
 Credits: originally inspired by and based on Enigma Deployable Vehicles
 
-Installation
+Installation:
 
 Add this to init.sqf:
 
